@@ -30,6 +30,7 @@ module.exports = {
 			openWxMap: 'app/api/openWxMap.jsx',
 			WeatherForm: 'app/components/WeatherForm.jsx',
 			WeatherMsg: 'app/components/WeatherMsg.jsx',
+			ErrorModal: 'app/components/ErrorModal.jsx',
 			apiKey: 'app/apiKey.js'
 		},
 		extensions: ['', '.js', '.jsx']
