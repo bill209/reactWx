@@ -29,7 +29,8 @@ module.exports = {
 			Weather: 'app/components/Weather.jsx',
 			openWxMap: 'app/api/openWxMap.jsx',
 			WeatherForm: 'app/components/WeatherForm.jsx',
-			WeatherMsg: 'app/components/WeatherMsg.jsx'
+			WeatherMsg: 'app/components/WeatherMsg.jsx',
+			apiKey: 'app/apiKey.js'
 		},
 		extensions: ['', '.js', '.jsx']
 	},
