@@ -16,7 +16,9 @@ var Weather = React.createClass({
 		this.setState({
 			isLoading: true,
 			wxError: false,
-			errorMsg: undefined
+			errorMsg: undefined,
+			location: undefined,
+			temp: undefined
 		});
 
 		openWxMap.getTemp(loc).then(function(temp){
@@ -32,6 +34,21 @@ var Weather = React.createClass({
 				errorMsg: e.message
 			});
 		})
+	},
+	componentDidMount: function(){
+		var loc = this.props.location.query.location;
+		if(loc && loc.length > 0){
+			this.handleSearch(loc);
+			window.location.hash = '#/';
+		}
+	},
+	componentWillReceiveProps: function(newProps){
+		var loc = newProps.location.query.location;
+
+		if(loc && loc.length > 0){
+			this.handleSearch(loc);
+			window.location.hash = '#/';
+		}
 	},
 	render: function(){
 		var {isLoading, temp, location, wxError, errorMsg} = this.state;
@@ -55,7 +72,7 @@ var Weather = React.createClass({
 		return(
 			<div>
 				<h1 className="page-title text-center">Get Weather</h1>
-				<WeatherForm onSearch={this.handleSearch}/>
+				<WeatherForm onSearch={this.handleSearch} searchLoc={location}/>
 				{renderMessage()}
 				{renderError()}
 			</div>

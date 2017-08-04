@@ -9,6 +9,17 @@ var WeatherForm = React.createClass({
 			this.props.onSearch(location);
 		}
 	},
+	componentWillReceiveProps: function(newProps){
+		var loc = newProps.searchLoc;
+		console.log("loc",loc);
+		console.log("newProps",newProps);
+		
+		
+
+		if(loc && loc.length > 0){
+			this.refs.location.value = loc;
+		}
+	},
 	render: function(){
 		return (
 			<div>
